@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= article.title
+  h5 作者是 #{author}
+  p= article.body
+  hr
+  if user
+    if user.id ==article.author
+      a.btn.btn-default(href='/articles/edit/'+article._id) 修改 
+      a.btn.btn-danger.delete-article(href='#',data-id=article._id) 删除
+  
